@@ -283,6 +283,10 @@
     <a href="{{ url('/courses') }}" class="nav-link {{ Request::is('courses*') ? 'active' : '' }}">
         <i class="ti ti-book"></i> Courses
     </a>
+    <a href="{{ url('/enrollments') }}" class="nav-link {{ Request::is('enrollments*') ? 'active' : '' }}">
+    <i class="ti ti-user-plus"></i> Enrollments
+</a>
+    
     <a href="{{ url('/faculty') }}" class="nav-link {{ Request::is('faculty*') ? 'active' : '' }}">
         <i class="ti ti-user-check"></i> Faculty
     </a>
