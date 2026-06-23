@@ -42,10 +42,7 @@ class FeeReceiptController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(FeeReceipt $feeReceipt)
-    {
-        //
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -66,8 +63,23 @@ class FeeReceiptController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(FeeReceipt $feeReceipt)
-    {
-        //
-    }
+    public function show(FeeReceipt $feeReceipt)
+{
+    return view('fee-receipts.show', compact('feeReceipt'));
+}
+
+public function destroy(FeeReceipt $feeReceipt)
+{
+    $feeReceipt->delete();
+
+    return redirect()
+        ->route('fee-receipts.index')
+        ->with('success', 'Receipt deleted successfully');
+}
+    
+
+    public function download($id)
+{
+    return "PDF Download Working";
+}
 }

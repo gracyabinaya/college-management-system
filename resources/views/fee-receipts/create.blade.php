@@ -1,25 +1,74 @@
-<h2>Create Receipt</h2>
+@extends('layouts.app')
 
-<form action="{{ route('fee-receipts.store') }}" method="POST">
-    @csrf
+@section('title', 'Generate Receipt')
 
-    Student Name:
-    <input type="text" name="student_name">
-    <br><br>
+@section('content')
 
-    Fee Name:
-    <input type="text" name="fee_name">
-    <br><br>
+<div class="container-fluid">
 
-    Amount:
-    <input type="number" name="amount">
-    <br><br>
+    <div class="mb-4">
+        <h2>Generate Receipt</h2>
+        <p class="text-muted">Create a new fee receipt</p>
+    </div>
 
-    Payment Date:
-    <input type="date" name="payment_date">
-    <br><br>
+    <div class="card shadow-sm">
+        <div class="card-body">
 
-    <button type="submit">
-        Generate Receipt
-    </button>
-</form>
+            <form action="{{ route('fee-receipts.store') }}" method="POST">
+                @csrf
+
+                <div class="mb-3">
+                    <label class="form-label">Student Name</label>
+                    <input
+                        type="text"
+                        name="student_name"
+                        class="form-control"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Fee Name</label>
+                    <input
+                        type="text"
+                        name="fee_name"
+                        class="form-control"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Amount</label>
+                    <input
+                        type="number"
+                        name="amount"
+                        step="0.01"
+                        class="form-control"
+                        required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Payment Date</label>
+                    <input
+                        type="date"
+                        name="payment_date"
+                        class="form-control"
+                        required>
+                </div>
+
+                <button type="submit" class="btn btn-warning">
+                    <i class="ti ti-receipt"></i>
+                    Generate Receipt
+                </button>
+
+                <a href="{{ route('fee-receipts.index') }}"
+                   class="btn btn-secondary">
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+@endsection

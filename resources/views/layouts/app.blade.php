@@ -298,6 +298,29 @@
     <a href="{{ url('/departments') }}" class="nav-link {{ Request::is('departments*') ? 'active' : '' }}">
         <i class="ti ti-building"></i> Departments
     </a>
+    <a href="{{ url('/fee-masters') }}" class="nav-link {{ Request::is('fee-masters*') ? 'active' : '' }}">
+    <i class="ti ti-cash"></i> Fee Master
+</a>
+
+<a href="{{ url('/fee-payments') }}" class="nav-link {{ Request::is('fee-payments*') ? 'active' : '' }}">
+    <i class="ti ti-credit-card"></i> Fee Payments
+</a>
+
+<a href="{{ url('/fee-receipts') }}" class="nav-link {{ Request::is('fee-receipts*') ? 'active' : '' }}">
+    <i class="ti ti-receipt"></i> Fee Receipts
+</a>
+
+<a href="{{ url('/fees/pending') }}" class="nav-link {{ Request::is('fees/pending*') ? 'active' : '' }}">
+    <i class="ti ti-alert-circle"></i> Pending Fees
+</a>
+
+<a href="{{ url('/fees/paid') }}" class="nav-link {{ Request::is('fees/paid*') ? 'active' : '' }}">
+    <i class="ti ti-check"></i> Paid Fees
+</a>
+
+<a href="{{ url('/fees/dashboard') }}" class="nav-link {{ Request::is('fees/dashboard*') ? 'active' : '' }}">
+    <i class="ti ti-chart-bar"></i> Fee Dashboard
+</a>
     <a href="{{ url('/reports') }}" class="nav-link {{ Request::is('reports*') ? 'active' : '' }}">
         <i class="ti ti-report"></i> Reports
     </a>

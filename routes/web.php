@@ -17,6 +17,8 @@ Route::resource('fee-payments', FeePaymentController::class);
 use App\Http\Controllers\FeeReceiptController;
 
 Route::resource('fee-receipts', FeeReceiptController::class);
+Route::get('/fee-receipts/{id}/download', [FeeReceiptController::class, 'download'])
+    ->name('fee-receipts.download');
 
 Route::get('/fees/pending', [FeePaymentController::class, 'pending']);
 
