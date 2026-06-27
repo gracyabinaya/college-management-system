@@ -52,9 +52,6 @@
                     <i class="ti ti-search search-icon"></i>
                     <input type="text" id="searchInput" placeholder="Search fees..." onkeyup="searchTable()">
                 </div>
-                <button class="btn-ghost" onclick="window.print()">
-                    <i class="ti ti-printer"></i> Print
-                </button>
             </div>
         </div>
 

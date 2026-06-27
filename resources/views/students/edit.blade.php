@@ -57,6 +57,25 @@
                     </div>
 
                     <div class="form-group">
+    <label class="form-label">Course *</label>
+
+    <select name="course_id" class="form-input" required>
+        <option value="">Select Course</option>
+
+        @foreach($courses as $course)
+            <option value="{{ $course->id }}"
+                {{ old('course_id', $student->course_id) == $course->id ? 'selected' : '' }}>
+                {{ $course->course_name }}
+            </option>
+        @endforeach
+    </select>
+
+    @error('course_id')
+        <div class="error-message">{{ $message }}</div>
+    @enderror
+</div>
+
+                    <div class="form-group">
                         <label class="form-label">Age *</label>
                         <input type="number" name="age" class="form-input" min="1" max="100" value="{{ old('age', $student->age) }}" required>
                         @error('age') <div class="error-message">{{ $message }}</div> @enderror

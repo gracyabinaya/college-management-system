@@ -322,9 +322,7 @@
     <i class="ti ti-check"></i> Paid Fees
 </a>
 
-<a href="{{ url('/fees/dashboard') }}" class="nav-link {{ Request::is('fees/dashboard*') ? 'active' : '' }}">
-    <i class="ti ti-chart-bar"></i> Fee Dashboard
-</a>
+
     <a href="{{ url('/reports') }}" class="nav-link {{ Request::is('reports*') ? 'active' : '' }}">
         <i class="ti ti-report"></i> Reports
     </a>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Course;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -25,9 +26,11 @@ class StudentController extends Controller
     }
 
     public function create()
-    {
-        return view('students.create');
-    }
+{
+    $courses = Course::all();
+
+    return view('students.create', compact('courses'));
+}
 
     public function store(Request $request)
     {
@@ -44,6 +47,7 @@ class StudentController extends Controller
             'alternate_contact_number' => 'nullable|string|digits:10',
             'aadhaar_number' => 'required|string|digits:12',
             'photo' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'course_id' => 'required|exists:courses,id',
         ]);
 
         $data['student_id'] = 'STU-' . now()->format('Ymd') . '-' . strtoupper(Str::random(4));
@@ -66,9 +70,11 @@ class StudentController extends Controller
     }
 
     public function edit(Student $student)
-    {
-        return view('students.edit', compact('student'));
-    }
+{
+    $courses = Course::all();
+
+    return view('students.edit', compact('student', 'courses'));
+}
 
     public function update(Request $request, Student $student)
     {
@@ -85,6 +91,7 @@ class StudentController extends Controller
             'alternate_contact_number' => 'nullable|string|digits:10',
             'aadhaar_number' => 'required|string|digits:12',
             'photo' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'course_id' => 'required|exists:courses,id',
         ]);
 
         if ($request->hasFile('photo')) {

@@ -30,6 +30,15 @@
                 ₹ {{ number_format($feeReceipt->amount, 2) }}
             </p>
 
+            @if($feeReceipt->feePayment)
+                <p>
+                    <strong>Generated From:</strong>
+                    <a href="{{ route('fee-payments.show', $feeReceipt->feePayment->id) }}">
+                        Payment #{{ $feeReceipt->feePayment->id }}
+                    </a>
+                </p>
+            @endif
+
             <a href="{{ route('fee-receipts.index') }}"
                class="btn btn-primary">
                 Back
